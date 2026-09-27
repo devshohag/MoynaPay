@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="green">#0B6E5A</color>
+    <color name="green_dark">#095746</color>
+    <color name="green_light">#E5F2EE</color>
+    <color name="surface">#F7F6F3</color>
+    <color name="white">#FFFFFF</color>
+    <color name="ink">#171C20</color>
+    <color name="muted">#657184</color>
+    <color name="border">#E4DED5</color>
+    <color name="amber">#A64C07</color>
+    <color name="amber_light">#FFF3E4</color>
+    <color name="red">#AD271F</color>
+    <color name="red_light">#FBE9E7</color>
+</resources>

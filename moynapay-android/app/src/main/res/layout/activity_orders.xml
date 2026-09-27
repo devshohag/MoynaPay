@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingTop="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                style="@style/Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/orders"
+                android:textSize="24sp" />
+
+            <TextView
+                style="@style/Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="নমুনা তথ্য" />
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:id="@+id/filterAll"
+                    style="@style/FilterChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:text="সব ৭" />
+                <TextView
+                    android:id="@+id/filterWaiting"
+                    style="@style/FilterChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:text="অপেক্ষায় ৪" />
+                <TextView
+                    android:id="@+id/filterConfirmed"
+                    style="@style/FilterChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:text="নিশ্চিত ২" />
+                <TextView
+                    android:id="@+id/filterCancelled"
+                    style="@style/FilterChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:text="বাতিল ১" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:id="@+id/orderList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="20dp" />
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <include layout="@layout/nav_home_inactive" />
+        <include layout="@layout/nav_orders_active" />
+        <include layout="@layout/nav_calls" />
+        <include layout="@layout/nav_payments" />
+        <include layout="@layout/nav_settings" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp">
+        <TextView
+            style="@style/Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/settings"
+            android:textSize="24sp" />
+        <TextView
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="নমুনা তথ্য" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    style="@style/Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="আপনার দোকানে বসাবেন"
+                    android:textStyle="bold" />
+                <TextView
+                    style="@style/Caption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="API যুক্ত হলে এখানে আপনার সাইটে বসানোর তথ্য দেখাবে; এখন শুধু নমুনা" />
+
+                <TextView
+                    style="@style/Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="API ঠিকানা · ডেমো"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+                <LinearLayout
+                    android:id="@+id/apiAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/preview_field"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="middle"
+                        android:maxLines="1"
+                        android:text="https://api.moynapay.example/v1/orders"
+                        android:textColor="@color/ink"
+                        android:textSize="13sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="ডেমো ঠিকানা কপি করা যাবে না"
+                        android:text="⧉"
+                        android:textColor="@color/green"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="API কি · নমুনা, ব্যবহারযোগ্য নয়"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+                <LinearLayout
+                    android:id="@+id/apiKey"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/preview_field"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="demo_••••••••••••"
+                        android:textColor="@color/ink"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="পুরো API কি দেখানো যাবে না"
+                        android:text="🔒"
+                        android:textColor="@color/green"
+                        android:textSize="17sp" />
+                </LinearLayout>
+                <TextView
+                    style="@style/Caption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="আসল কি তৈরির সময় একবারই দেখানো যাবে।" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/card"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp">
+                <LinearLayout
+                    android:id="@+id/callServiceRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="74dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView style="@style/Body" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="কল সার্ভিস" android:textStyle="bold" />
+                        <TextView style="@style/Caption" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="৳ ১৫ প্রতি কল · সেটিংস দেখুন" />
+                    </LinearLayout>
+                    <Switch
+                        android:id="@+id/callServiceSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:contentDescription="কল সার্ভিস চালু নমুনা" />
+                </LinearLayout>
+                <View style="@style/SettingsDivider" android:layout_width="match_parent" android:layout_height="1dp" />
+                <LinearLayout
+                    android:id="@+id/paymentServiceRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="74dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView style="@style/Body" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="পেমেন্ট সার্ভিস" android:textStyle="bold" />
+                        <TextView style="@style/Caption" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="bKash নোটিফিকেশন মেলানো" />
+                    </LinearLayout>
+                    <Switch
+                        android:id="@+id/paymentServiceSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:contentDescription="পেমেন্ট সার্ভিস চালু নমুনা" />
+                </LinearLayout>
+                <View style="@style/SettingsDivider" android:layout_width="match_parent" android:layout_height="1dp" />
+                <LinearLayout
+                    android:id="@+id/courierServiceRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="74dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView style="@style/Body" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="কুরিয়ার সার্ভিস" android:textStyle="bold" />
+                        <TextView style="@style/Caption" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="চালু করতে ট্যাপ করুন" />
+                    </LinearLayout>
+                    <Switch
+                        android:id="@+id/courierServiceSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:contentDescription="কুরিয়ার সার্ভিস বন্ধ নমুনা" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/card"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp">
+                <LinearLayout
+                    android:id="@+id/webhookRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <TextView style="@style/Body" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/webhook_title" />
+                    <TextView style="@style/Caption" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="›" android:textSize="25sp" />
+                </LinearLayout>
+                <View style="@style/SettingsDivider" android:layout_width="match_parent" android:layout_height="1dp" />
+                <LinearLayout
+                    android:id="@+id/profileRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <TextView style="@style/Body" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/shop_profile" />
+                    <TextView style="@style/Caption" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="›" android:textSize="25sp" />
+                </LinearLayout>
+                <View style="@style/SettingsDivider" android:layout_width="match_parent" android:layout_height="1dp" />
+                <TextView
+                    android:id="@+id/logoutRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:gravity="center_vertical"
+                    android:text="লগআউট"
+                    android:textColor="@color/red"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <TextView
+                style="@style/Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center"
+                android:text="ডিজাইন প্রিভিউ · কোনো সেটিংস সংরক্ষিত হয় না" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <include layout="@layout/nav_home_inactive" />
+        <include layout="@layout/nav_orders" />
+        <include layout="@layout/nav_calls" />
+        <include layout="@layout/nav_payments" />
+        <include layout="@layout/nav_settings_active" />
+    </LinearLayout>
+</LinearLayout>

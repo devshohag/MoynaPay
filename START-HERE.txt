@@ -1,0 +1,15 @@
+MoynaPay Android design + debug APK workflow
+
+1. Extract this ZIP into the ROOT of your cloned devshohag/YoPay repo.
+   Both moynapay-android/ and .github/ must be at the repo root.
+2. In that repo run:
+   git add moynapay-android .github/workflows/moynapay-android.yml
+   git commit -m "Add MoynaPay merchant app design and APK CI"
+   git push origin main
+3. GitHub -> Actions -> moynapay-android -> latest successful run ->
+   Artifacts -> moynapay-merchant-debug-apk. Download and extract
+   the artifact ZIP to get the debug .apk.
+
+If your default branch is not main, push to your intended branch instead.
+GitHub cannot build the source while it is still inside this ZIP.
+The UI implements the eight design screens with sample data; no API is connected.

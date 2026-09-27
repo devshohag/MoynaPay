@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:minHeight="290dp"
+            android:orientation="vertical"
+            android:padding="32dp">
+
+            <TextView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:background="@drawable/card"
+                android:gravity="center"
+                android:text="M"
+                android:textColor="@color/green"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:lineSpacingExtra="4dp"
+                android:text="অর্ডার নিশ্চিত করুন, টাকা বুঝে নিন,\nকুরিয়ারে পাঠান — এক জায়গা থেকে"
+                android:textColor="#D0E8E2"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_top"
+            android:orientation="vertical"
+            android:paddingLeft="24dp"
+            android:paddingTop="26dp"
+            android:paddingRight="24dp"
+            android:paddingBottom="30dp">
+
+            <TextView
+                style="@style/Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_title" />
+
+            <TextView
+                style="@style/Body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:text="@string/mobile_number"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/mobileNumber"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="7dp"
+                android:background="@drawable/field"
+                android:hint="01711 223344"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:paddingHorizontal="16dp"
+                android:singleLine="true"
+                android:textColor="@color/ink"
+                android:textSize="17sp" />
+
+            <TextView
+                style="@style/Body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="@string/otp_code"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/otpCode"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="7dp"
+                android:background="@drawable/field"
+                android:hint="৪    ৯    ২    ৭"
+                android:inputType="number"
+                android:maxLength="4"
+                android:paddingHorizontal="16dp"
+                android:singleLine="true"
+                android:textColor="@color/ink"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/previewButton"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/primary_button"
+                android:fontFamily="sans"
+                android:text="@string/preview_home"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@string/preview_note" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

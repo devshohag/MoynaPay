@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp">
+        <TextView
+            android:id="@+id/queueBack"
+            android:layout_width="40dp"
+            android:layout_height="48dp"
+            android:contentDescription="@string/back"
+            android:gravity="center"
+            android:text="‹"
+            android:textColor="@color/ink"
+            android:textSize="34sp" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                style="@style/Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/human_queue"
+                android:textSize="20sp" />
+            <TextView
+                style="@style/Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="৫টি অপেক্ষায় · ৩টি নমুনা" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/callSettingsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:contentDescription="@string/call_settings"
+            android:gravity="center"
+            android:paddingHorizontal="9dp"
+            android:text="⚙"
+            android:textColor="@color/green"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/info_panel"
+                android:lineSpacingExtra="3dp"
+                android:padding="16dp"
+                android:text="ⓘ  এগুলো বাতিল নয়। মেশিন উত্তর বুঝতে পারেনি, তাই অর্ডারগুলো দাঁড়িয়ে আছে।"
+                android:textColor="#245F84"
+                android:textSize="14sp" />
+            <LinearLayout
+                android:id="@+id/humanOrders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical" />
+            <TextView
+                style="@style/Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="@string/action_preview_only" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <include layout="@layout/nav_home_inactive" />
+        <include layout="@layout/nav_orders" />
+        <include layout="@layout/nav_calls_active" />
+        <include layout="@layout/nav_payments" />
+        <include layout="@layout/nav_settings" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MoynaPay</string>
+    <string name="design_preview">ডিজাইন প্রিভিউ · নমুনা তথ্য</string>
+    <string name="login_title">লগইন করুন</string>
+    <string name="mobile_number">মোবাইল নম্বর</string>
+    <string name="otp_code">OTP কোড</string>
+    <string name="preview_home">ডেমো হোম দেখুন</string>
+    <string name="preview_note">এখন কোনো OTP পাঠানো বা যাচাই হচ্ছে না</string>
+    <string name="home">হোম</string>
+    <string name="orders">অর্ডার</string>
+    <string name="calls">কল</string>
+    <string name="payments">পেমেন্ট</string>
+    <string name="settings">সেটিংস</string>
+    <string name="back">পেছনে যান</string>
+    <string name="call_preview">ফোন করার প্রিভিউ</string>
+    <string name="action_preview_only">ডিজাইন প্রিভিউ — এই কাজটি এখনো চালু নেই</string>
+    <string name="settings_preview_only">ডিজাইন প্রিভিউ — সেটিংস সংরক্ষিত হয়নি</string>
+    <string name="confirm_order">নিশ্চিত</string>
+    <string name="cancel_order">বাতিল</string>
+    <string name="human_queue">মানুষ লাগবে</string>
+    <string name="call_settings">কল সেটিংস</string>
+    <string name="webhook_title">ফলাফল কোথায় পাঠাব (webhook)</string>
+    <string name="shop_profile">দোকানের তথ্য</string>
+    <string name="close">বন্ধ করুন</string>
+</resources>

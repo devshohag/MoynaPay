@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp">
+        <TextView
+            android:id="@+id/settingsBack"
+            android:layout_width="40dp"
+            android:layout_height="48dp"
+            android:contentDescription="@string/back"
+            android:gravity="center"
+            android:text="‹"
+            android:textColor="@color/ink"
+            android:textSize="34sp" />
+        <TextView
+            style="@style/Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/call_settings"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/saveCallSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:background="@drawable/primary_button"
+            android:gravity="center"
+            android:paddingHorizontal="18dp"
+            android:text="সেভ"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                style="@style/Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="গ্রাহক যা শুনবে"
+                android:textStyle="bold" />
+            <EditText
+                android:id="@+id/callScript"
+                android:layout_width="match_parent"
+                android:layout_height="148dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/card"
+                android:gravity="top"
+                android:inputType="textMultiLine|textCapSentences"
+                android:lineSpacingExtra="3dp"
+                android:padding="15dp"
+                android:text="আসসালামু আলাইকুম। {দোকান} থেকে বলছি। আপনার নামে একটি অর্ডার আছে, মোট {টাকা} টাকা। নিশ্চিত করতে ১ চাপুন, বাতিল করতে ০ চাপুন।"
+                android:textColor="@color/ink"
+                android:textSize="15sp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView android:id="@+id/tokenShop" style="@style/TokenChip" android:layout_width="wrap_content" android:layout_height="32dp" android:text="{দোকান}" />
+                    <TextView android:id="@+id/tokenName" style="@style/TokenChip" android:layout_width="wrap_content" android:layout_height="32dp" android:text="{নাম}" />
+                    <TextView android:id="@+id/tokenAmount" style="@style/TokenChip" android:layout_width="wrap_content" android:layout_height="32dp" android:text="{টাকা}" />
+                    <TextView android:id="@+id/tokenProduct" style="@style/TokenChip" android:layout_width="wrap_content" android:layout_height="32dp" android:text="{পণ্য}" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/card"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    style="@style/Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="13dp"
+                    android:text="কোন বোতামে কী"
+                    android:textStyle="bold" />
+                <LinearLayout style="@style/SettingsMappingRow" android:layout_width="match_parent" android:layout_height="54dp">
+                    <TextView style="@style/MappingKey" android:layout_width="38dp" android:layout_height="38dp" android:text="১" android:background="@drawable/status_confirmed" android:textColor="@color/green" />
+                    <TextView style="@style/Body" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12dp" android:text="অর্ডার নিশ্চিত" />
+                </LinearLayout>
+                <LinearLayout style="@style/SettingsMappingRow" android:layout_width="match_parent" android:layout_height="54dp">
+                    <TextView style="@style/MappingKey" android:layout_width="38dp" android:layout_height="38dp" android:text="০" android:background="@drawable/status_cancelled" android:textColor="@color/red" />
+                    <TextView style="@style/Body" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12dp" android:text="বাতিল" />
+                </LinearLayout>
+                <LinearLayout style="@style/SettingsMappingRow" android:layout_width="match_parent" android:layout_height="54dp">
+                    <TextView style="@style/MappingKey" android:layout_width="38dp" android:layout_height="38dp" android:text="৯" android:background="@drawable/status_calling" android:textColor="@color/amber" />
+                    <TextView style="@style/Body" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12dp" android:text="মানুষের সাথে কথা" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/card"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="5dp">
+                <LinearLayout
+                    android:id="@+id/hoursControl"
+                    style="@style/SettingsControlRow" android:layout_width="match_parent" android:layout_height="76dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView style="@style/Body" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="কল দেওয়ার সময়" android:textStyle="bold" />
+                        <TextView style="@style/Caption" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="এর বাইরে কল যাবে না" />
+                    </LinearLayout>
+                    <TextView style="@style/SettingValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="০৯:০০ – ২১:০০" />
+                </LinearLayout>
+                <View style="@style/SettingsDivider" android:layout_width="match_parent" android:layout_height="1dp" />
+                <LinearLayout
+                    android:id="@+id/retryControl"
+                    style="@style/SettingsControlRow" android:layout_width="match_parent" android:layout_height="76dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView style="@style/Body" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="না ধরলে কতবার" android:textStyle="bold" />
+                        <TextView style="@style/Caption" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="২০ মিনিট, তারপর ২ ঘণ্টা পর" />
+                    </LinearLayout>
+                    <TextView style="@style/SettingValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="৩ বার" />
+                </LinearLayout>
+                <View style="@style/SettingsDivider" android:layout_width="match_parent" android:layout_height="1dp" />
+                <LinearLayout style="@style/SettingsControlRow" android:layout_width="match_parent" android:layout_height="76dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView style="@style/Body" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="কথা শুনে বুঝবে" android:textStyle="bold" />
+                        <TextView style="@style/Caption" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="কেউ বোতাম না চাপলে" />
+                    </LinearLayout>
+                    <Switch
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:contentDescription="কথা শুনে বুঝবে" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/human_callout"
+                android:lineSpacingExtra="3dp"
+                android:padding="14dp"
+                android:text="⚠  মেশিন নিজে থেকে কখনো অর্ডার বাতিল করবে না। বুঝতে না পারলে আপনার কাছে পাঠাবে।"
+                android:textColor="@color/amber"
+                android:textSize="13sp" />
+            <TextView
+                style="@style/Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center"
+                android:text="@string/settings_preview_only" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
