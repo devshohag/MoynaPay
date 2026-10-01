@@ -1,0 +1,21 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <!-- The database switch, declared once for the whole solution so that the API can
+         reference the EF design-time tools under the same condition the Infrastructure
+         project uses for the provider.
+
+         MSBuild reads environment variables as properties, which is why
+
+             $env:UsePostgres = "true"
+
+         is enough for `dotnet build`, `dotnet ef migrations add` and `dotnet ef database
+         update` alike. `dotnet ef` does not forward -p: to MSBuild, so the environment
+         variable is the only form that reaches all three. -->
+    <UsePostgres Condition="'$(UsePostgres)' == ''">false</UsePostgres>
+  </PropertyGroup>
+</Project>

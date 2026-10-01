@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- EF Core and Npgsql are the only packages this solution needs, and they are behind
+         a switch so that a machine with no feed still builds and runs everything else:
+         the domain, the lifecycle, the parser, the call rules, the signing and the whole
+         API on its in-memory stores.
+
+           dotnet build                    the fallback, no packages
+           $env:UsePostgres = "true"       with the database, for build and dotnet ef alike
+
+         The switch itself is declared in Directory.Build.props so that every project in
+         the solution sees the same value.
+    -->
+    <DefineConstants Condition="'$(UsePostgres)' == 'true'">$(DefineConstants);USE_POSTGRES</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <ProjectReference Include="..\MoynaPay.Application\MoynaPay.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(UsePostgres)' == 'true'">
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <!-- Without the switch the persistence code is not compiled at all, rather than
+       compiled against missing types. -->
+  <ItemGroup Condition="'$(UsePostgres)' != 'true'">
+    <Compile Remove="Persistence\**\*.cs" />
+  </ItemGroup>
+</Project>

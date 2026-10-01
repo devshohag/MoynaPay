@@ -6,10 +6,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.CompoundButton
+import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.Switch
+import android.widget.TextView
 import android.widget.Toast
 
-/** All values are mock data. In particular, no usable API secret exists in the app. */
 class SettingsActivity : Activity() {
+    private val configStore: ApiConfigStore by lazy { ApiConfigStore(this) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.statusBarColor = getColor(R.color.white)
@@ -34,8 +39,7 @@ class SettingsActivity : Activity() {
             finish()
         }
 
-        // The displayed URL and masked key are examples; copying them would suggest usable credentials.
-        findViewById<View>(R.id.apiAddress).setOnClickListener { previewOnly() }
+        findViewById<View>(R.id.apiAddress).setOnClickListener { showApiConfigDialog() }
         findViewById<View>(R.id.apiKey).setOnClickListener { previewOnly() }
         findViewById<View>(R.id.callServiceRow).setOnClickListener {
             startActivity(Intent(this, CallSettingsActivity::class.java))
@@ -62,6 +66,8 @@ class SettingsActivity : Activity() {
             )
         }
         findViewById<View>(R.id.logoutRow).setOnClickListener { previewOnly() }
+
+        renderApiConfig()
     }
 
     private fun showPreview(title: String, message: String) {
@@ -71,5 +77,54 @@ class SettingsActivity : Activity() {
 
     private fun previewOnly() {
         Toast.makeText(this, R.string.action_preview_only, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun renderApiConfig() {
+        val config = configStore.load()
+        findViewById<TextView>(R.id.apiModeValue).text =
+            if (config.mode == ApiMode.Real) "Real API" else "Fake API"
+        findViewById<TextView>(R.id.apiAddressValue).text = config.baseUrl
+    }
+
+    private fun showApiConfigDialog() {
+        val current = configStore.load()
+        val form = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(48, 20, 48, 0)
+        }
+        val modeSwitch = Switch(this).apply {
+            text = "Use real API"
+            isChecked = current.mode == ApiMode.Real
+        }
+        val baseUrlInput = EditText(this).apply {
+            hint = "https://your-tunnel.example.com"
+            setSingleLine(true)
+            setText(current.baseUrl)
+        }
+
+        form.addView(modeSwitch)
+        form.addView(baseUrlInput)
+
+        AlertDialog.Builder(this)
+            .setTitle("API connection")
+            .setView(form)
+            .setPositiveButton("Save") { _, _ ->
+                val mode = if (modeSwitch.isChecked) ApiMode.Real else ApiMode.Fake
+                val baseUrl = baseUrlInput.text.toString().trim()
+                    .ifBlank { ApiConfig.current.baseUrl }
+                    .trimEnd('/')
+                configStore.save(ApiConfig(mode = mode, baseUrl = baseUrl))
+                SessionStore(this).clear()
+                renderApiConfig()
+                Toast.makeText(this, "API config saved. Please login again.", Toast.LENGTH_LONG).show()
+            }
+            .setNeutralButton("Reset") { _, _ ->
+                configStore.reset()
+                SessionStore(this).clear()
+                renderApiConfig()
+                Toast.makeText(this, "API config reset.", Toast.LENGTH_SHORT).show()
+            }
+            .setNegativeButton(R.string.close, null)
+            .show()
     }
 }
